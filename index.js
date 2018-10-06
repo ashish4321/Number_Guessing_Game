@@ -6,37 +6,35 @@ var originalNumber = document.querySelector('.originalNumber');
 
 var guessSubmit = document.querySelector('.guessSubmit');
 var guessField = document.querySelector('.guessField');
+var guessLabel = document.querySelector('#guessLabel');
 
-var guessCount = 1;
-var resetButton;
-document.getElementById("demo").innerHTML = 7;
+var guessCount = 0;
+var resetButton = document.querySelector('#restartButton');
+
+guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remaining)';
 
 function checkGuess() {
     var userGuess = Number(guessField.value);
-    var chancesRem = (7 - guessCount);
-    document.getElementById("demo").innerHTML = chancesRem;
-    if (guessCount === 1) {
+    guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remaining)';
+    if (guessCount === 0) {
         guesses.textContent = 'Previous guesses: ';
     }
-    guesses.textContent += userGuess + ' ';
+    guesses.textContent += userGuess + '\t';
 
     if (userGuess === randomNumber) {
         lastResult.textContent = 'Awesome! You are great.';
         lowOrHi.textContent = '';
         setGameOver();
-    }
-    else if (guessCount === 7) {
+    } else if (guessCount === 7) {
         lastResult.textContent = 'Game over! The original number was:';
         originalNumber.textContent = randomNumber;
         lowOrHi.textContent = '';
         setGameOver();
-    }
-    else {
+    } else {
         lastResult.textContent = 'Oops You Missed!';
         if (userGuess < randomNumber) {
             lowOrHi.textContent = 'Try a higher number than this.';
-        }
-        else if (userGuess > randomNumber) {
+        } else {
             lowOrHi.textContent = 'Try a smaller number than this.';
         }
     }
@@ -47,26 +45,24 @@ function checkGuess() {
 }
 
 guessSubmit.addEventListener('click', checkGuess);
+resetButton.addEventListener('click', resetGame);
 
 function setGameOver() {
     guessField.disabled = true;
     guessSubmit.disabled = true;
-    resetButton = document.createElement('button');
-    resetButton.textContent = 'Start new game';
-    document.body.appendChild(resetButton);
-    resetButton.addEventListener('click', resetGame);
+    resetButton.classList.remove('invisible');
 }
 
 function resetGame() {
-    document.getElementById("demo").innerHTML = 7;
-    guessCount = 1;
+    guessCount = 0;
+    guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remaining)';
 
-    var resetParas = document.querySelectorAll('.resultParas p');
+    var resetParas = document.querySelectorAll('.resultParas');
     for (var i = 0; i < resetParas.length; i++) {
         resetParas[i].textContent = '';
     }
 
-    resetButton.parentNode.removeChild(resetButton);
+    resetButton.classList.add('invisible');
 
     guessField.disabled = false;
     guessSubmit.disabled = false;

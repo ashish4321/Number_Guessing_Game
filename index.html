@@ -9,26 +9,36 @@
     <title>Guess Number</title>
 </head>
 <body>
-<div class="heading1">
-    <h1>Guess Number</h1>
+<nav class="navbar navbar-dark heading1">
+    <a class="navbar-brand mb-0" href="index.html">Guess Number</a><br>
+    <h3 class="navbar-brand mb-0 text-white-50">Guess Number between 1 and 100. You have 7 chances.</h3>
+</nav>
+
+<div class="container-fluid m-5 col col-5 align-content-center">
+    <div class="row">
+        <form id="guessForm" onsubmit="return false" class="">
+            <div class="form-group ">
+                <label for="guessField" id="guessLabel">Enter a guess:</label>
+                <input type="text" placeholder="1-100" id="guessField" class="guessField form-control">
+                <small class="form-text text-muted">Hint: Try a mid number</small>
+            </div>
+            <input type="button" value="Submit guess" class="btn btn-primary guessSubmit">
+        </form>
+    </div>
+
+    <div class="row resultParas mt-5">
+        <p class=" guesses"></p>
+        <div class="w-100"></div>
+        <p class=" lastResult"></p>
+        <div class="w-100"></div>
+        <h4 class=" originalNumber"></h4>
+        <p class=" lowOrHi"></p>
+    </div>
+
+    <button id="restartButton" class="row btn btn-warning invisible mt-5">Start a new game</button>
 </div>
-<div class="heading2">
-    <h1>Guess Number between 1 and 100.You have 7 chances.</h1>
-</div>
-<p class="getInLine">Chances Remaining:
-<p class="getInLine" id="demo"></p>
-<p>Hint: Try a mid number</p>
-<div class="form">
-    <label for="guessField"> Enter a guess: </label>
-    <input type="text" placeholder="1-100" id="guessField" class="guessField">
-    <input type="submit" value="Submit guess" class="guessSubmit">
-</div>
-<div class="resultParas">
-    <p class="guesses"></p>
-    <p class="lastResult"></p>
-    <p class="originalNumber"></p>
-    <p class="lowOrHi"></p>
-</div>
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
