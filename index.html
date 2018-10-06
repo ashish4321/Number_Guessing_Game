@@ -14,28 +14,30 @@
     <h3 class="navbar-brand mb-0 text-white-50">Guess Number between 1 and 100. You have 7 chances.</h3>
 </nav>
 
-<div class="container-fluid m-5 col col-7 col-md-5">
-    <div class="row w-100">
-        <form id="guessForm" onsubmit="return false" class="w-100">
-            <div class="form-group w-100">
-                <label for="guessField" id="guessLabel">Enter a guess:</label>
-                <input type="text" placeholder="1-100" id="guessField" class="guessField form-control">
-                <small class="form-text text-muted">Hint: Try a mid number</small>
-            </div>
-            <input type="button" value="Submit guess" class="w-100 btn btn-primary guessSubmit">
-        </form>
-    </div>
+<div class="row justify-content-center">
+    <div class="container-fluid m-5 col col-7 col-md-5">
+        <div class="row w-100">
+            <form id="guessForm" onsubmit="return false" class="w-100">
+                <div class="form-group w-100">
+                    <label for="guessField" id="guessLabel">Enter a guess:</label>
+                    <input type="text" placeholder="1-100" id="guessField" class="guessField form-control">
+                    <small class="form-text text-muted">Hint: Try a mid number</small>
+                </div>
+                <input type="button" value="Submit guess" class="w-100 btn btn-primary guessSubmit">
+            </form>
+        </div>
 
-    <div class="row resultParas mt-5">
-        <p class="guesses"></p>
-        <div class="w-100"></div>
-        <p class="lastResult"></p>
-        <div class="w-100"></div>
-        <h4 class="originalNumber"></h4>
-        <p class="lowOrHi"></p>
-    </div>
+        <div class="row resultParas mt-5">
+            <p class="guesses"></p>
+            <div class="w-100"></div>
+            <p class="lastResult"></p>
+            <div class="w-100"></div>
+            <h4 class="originalNumber"></h4>
+            <p class="lowOrHi"></p>
+        </div>
 
-    <button id="restartButton" class="row btn btn-warning invisible mt-5 w-100">Start a new game</button>
+        <button id="restartButton" class="row btn btn-warning invisible mt-5 w-100">Start a new game</button>
+    </div>
 </div>
 
 
