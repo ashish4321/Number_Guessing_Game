@@ -15,7 +15,6 @@ guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remain
 
 function checkGuess() {
     var userGuess = Number(guessField.value);
-    guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remaining)';
     if (guessCount === 0) {
         guesses.textContent = 'Previous guesses: ';
     }
@@ -25,7 +24,7 @@ function checkGuess() {
         lastResult.textContent = 'Awesome! You are great.';
         lowOrHi.textContent = '';
         setGameOver();
-    } else if (guessCount === 7) {
+    } else if (guessCount === 6) {
         lastResult.textContent = 'Game over! The original number was:';
         originalNumber.textContent = randomNumber;
         lowOrHi.textContent = '';
@@ -42,6 +41,7 @@ function checkGuess() {
     guessCount++;
     guessField.value = '';
     guessField.focus();
+    guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remaining)';
 }
 
 guessSubmit.addEventListener('click', checkGuess);
@@ -57,7 +57,7 @@ function resetGame() {
     guessCount = 0;
     guessLabel.innerHTML = 'Enter a guess:\t(' + (7 - guessCount) + ' chances remaining)';
 
-    var resetParas = document.querySelectorAll('.resultParas');
+    var resetParas = document.querySelector('.resultParas').children;
     for (var i = 0; i < resetParas.length; i++) {
         resetParas[i].textContent = '';
     }
